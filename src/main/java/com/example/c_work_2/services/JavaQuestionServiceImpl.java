@@ -1,8 +1,10 @@
 package com.example.c_work_2.services;
 
+import org.springframework.stereotype.Service;
+
 import java.util.Collection;
 
-public class QuestionServiceImpl implements QuestionService {
+public class JavaQuestionServiceImpl implements QuestionService {
     @Override
     public Question addQuestion(String question, String answer) {
         return null;
