@@ -1,14 +1,17 @@
 package com.example.c_work_2.services;
 
+import com.example.c_work_2.exceptions.LimitQuestionsException;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 @Service
 public class ExaminerServiceImpl implements ExaminerService {
     private final QuestionService questionService;
+    private Random random;
 
     public ExaminerServiceImpl(QuestionService questionService) {
         this.questionService = questionService;
@@ -16,8 +19,15 @@ public class ExaminerServiceImpl implements ExaminerService {
 
     @Override
     public Collection<Question> getQuestion(int amount) {
-        Set<String> questions = new HashSet<>();
-        return null;
+        if (amount <= 0 || amount > questionService.getAll().size()) {
+            throw new LimitQuestionsException();
+        }
+        Set<Question> examQuestions = new HashSet<>(amount);
+        while (examQuestions.size() < amount) {
+            examQuestions.add(questionService.getRandomQuestion());
+        }
+
+        return examQuestions;
 
     }
 }

@@ -13,7 +13,7 @@ public class JavaQuestionServiceImpl implements QuestionService {
     private final HashSet<Question> questions;
 
     public JavaQuestionServiceImpl() {
-        this.questions = new HashSet<Question>();
+        this.questions = new HashSet<>();
     }
 
 
@@ -61,6 +61,9 @@ public class JavaQuestionServiceImpl implements QuestionService {
     public Question getRandomQuestion() {
         Random random = new Random();
 
-        return questions.stream().filter(x-> Objects.equals(x, random.nextInt(questions.size()))).findFirst().get();
+        return questions.stream()
+                .skip(random.nextInt(questions.size()))
+                .findFirst()
+                .get();
     }
 }

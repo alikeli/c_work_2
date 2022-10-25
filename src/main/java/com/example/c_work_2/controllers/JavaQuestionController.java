@@ -1,6 +1,5 @@
 package com.example.c_work_2.controllers;
 
-import com.example.c_work_2.services.JavaQuestionServiceImpl;
 import com.example.c_work_2.services.Question;
 import com.example.c_work_2.services.QuestionService;
 import org.springframework.web.bind.annotation.GetMapping;
