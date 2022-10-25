@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 
-import static com.fasterxml.jackson.databind.type.LogicalType.Collection;
-
 @RestController
+@RequestMapping(path = "/java")
 
 public class JavaQuestionController {
     private final QuestionService questionService;
@@ -21,15 +20,16 @@ public class JavaQuestionController {
         this.questionService = questionService;
     }
 
-    @RequestMapping("/exam/java")
 
-    @GetMapping("/add")
+
+
+    @GetMapping(path = "/add")
     public Question addQuestion(@RequestParam(name = "question") String question,
                                 @RequestParam(name = "answer") String answer) {
-        return questionService.addQuestion(question, answer);
+        return questionService.addQuestion(question, answer)  ;
     }
 
-    @GetMapping("/remove")
+    @GetMapping(path = "/remove")
     public Question removeQuestion(@RequestParam(name = "question") String question,
                                    @RequestParam(name = "answer") String answer) {
         return questionService.removeQuestion(question, answer);
