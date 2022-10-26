@@ -16,8 +16,6 @@ public class JavaQuestionServiceImpl implements QuestionService {
         this.questions = new HashSet<>();
     }
 
-
-
     @Override
     public Question addQuestion(String question, String answer) {
         Question question1 = new Question(question, answer);
@@ -66,4 +64,5 @@ public class JavaQuestionServiceImpl implements QuestionService {
                 .findFirst()
                 .get();
     }
+
 }

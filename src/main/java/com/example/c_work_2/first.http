@@ -2,6 +2,8 @@ GET http://localhost:8080/exam/java/add?question=QuestionText&answer=QuestionAns
 ###
 GET http://localhost:8080/exam/java/add?question=QuestionText1&answer=QuestionAnswer1
 ###
+GET http://localhost:8080/exam/java/add?question=QuestionText7
+###
 GET http://localhost:8080/exam/java/add?question=QuestionText3&answer=QuestionAnswer3
 ###
 GET http://localhost:8080/exam/java/add?question=QuestionText4&answer=QuestionAnswer4
