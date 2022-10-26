@@ -10,7 +10,7 @@ import java.util.*;
 
 @Service
 public class JavaQuestionServiceImpl implements QuestionService {
-    private final HashSet<Question> questions;
+    private final Set<Question> questions;
 
     public JavaQuestionServiceImpl() {
         this.questions = new HashSet<>();
@@ -25,7 +25,7 @@ public class JavaQuestionServiceImpl implements QuestionService {
 
         questions.add(question1);
 
-        return question1 ;
+        return question1;
 
     }
 
@@ -41,7 +41,7 @@ public class JavaQuestionServiceImpl implements QuestionService {
 
     @Override
     public Question removeQuestion(String question, String answer) {
-        Question question1= new Question(question,answer);
+        Question question1 = new Question(question, answer);
         if (questions.contains(question1)) {
             questions.remove(question1);
             return question1;
@@ -59,10 +59,7 @@ public class JavaQuestionServiceImpl implements QuestionService {
     public Question getRandomQuestion() {
         Random random = new Random();
 
-        return questions.stream()
-                .skip(random.nextInt(questions.size()))
-                .findFirst()
-                .get();
+        return questions.stream().skip(random.nextInt(questions.size())).findFirst().get();
     }
 
 }

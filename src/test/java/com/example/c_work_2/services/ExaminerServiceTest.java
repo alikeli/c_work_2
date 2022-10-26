@@ -30,14 +30,11 @@ class ExaminerServiceTest {
 
     @BeforeEach
     public void beforeEach() {
-        when(questionService.getAll()).thenReturn(
-                List.of(
-                        new Question("QuestionText", "QuestionAnswer"),
-                        new Question("QuestionText1", "QuestionAnswer1"),
-                        new Question("QuestionText2", "QuestionAnswer2"),
-                        new Question("QuestionText3", "QuestionAnswer3")
-                )
-        );
+        when(questionService.getAll()).thenReturn(List.of(
+                new Question("QuestionText", "QuestionAnswer"),
+                new Question("QuestionText1", "QuestionAnswer1"),
+                new Question("QuestionText2", "QuestionAnswer2"),
+                new Question("QuestionText3", "QuestionAnswer3")));
 
     }
 
@@ -50,18 +47,15 @@ class ExaminerServiceTest {
 
     @Test
     public void shouldReturnCollectionOfQuestions() {
-        Set<Question> questionSet = new HashSet<Question>(
-                Set.of(new Question("QuestionText", "QuestionAnswer"),
-                        new Question("QuestionText1", "QuestionAnswer1"))
-        );
+        Set<Question> questionSet = new HashSet<Question>(Set.of(
+                new Question("QuestionText", "QuestionAnswer"),
+                new Question("QuestionText1", "QuestionAnswer1")));
         when(questionService.getAll()).thenReturn(questionSet);
-        when(questionService.getRandomQuestion()).thenReturn(new Question("QuestionText", "QuestionAnswer"),
+        when(questionService.getRandomQuestion()).thenReturn(
+                new Question("QuestionText", "QuestionAnswer"),
                 new Question("QuestionText1", "QuestionAnswer1"));
         assertEquals(questionSet, examinerService.getQuestion(2));
     }
-
-
-
 
 
     public static Stream<Arguments> provideParamsForGetQuestion() {

@@ -11,7 +11,6 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping(path = "/java")
-
 public class JavaQuestionController {
     private final QuestionService questionService;
 
@@ -21,15 +20,13 @@ public class JavaQuestionController {
 
 
     @GetMapping(path = "/add")
-    public Question addQuestion(@RequestParam(name = "question") String question,
-                                @RequestParam(name = "answer") String answer) {
+    public Question addQuestion(@RequestParam(name = "question") String question, @RequestParam(name = "answer") String answer) {
         return questionService.addQuestion(question, answer);
     }
 
 
     @GetMapping(path = "/remove")
-    public Question removeQuestion(@RequestParam(name = "question") String question,
-                                   @RequestParam(name = "answer") String answer) {
+    public Question removeQuestion(@RequestParam(name = "question") String question, @RequestParam(name = "answer") String answer) {
         return questionService.removeQuestion(question, answer);
     }
 

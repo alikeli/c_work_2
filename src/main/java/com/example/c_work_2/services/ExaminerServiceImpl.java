@@ -1,6 +1,8 @@
 package com.example.c_work_2.services;
+
 import com.example.c_work_2.exceptions.LimitQuestionsException;
 import org.springframework.stereotype.Service;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Random;
@@ -9,7 +11,6 @@ import java.util.Set;
 @Service
 public class ExaminerServiceImpl implements ExaminerService {
     private final QuestionService questionService;
-    private Random random;
 
     public ExaminerServiceImpl(QuestionService questionService) {
         this.questionService = questionService;
